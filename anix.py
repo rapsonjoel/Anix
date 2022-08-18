@@ -17,6 +17,11 @@ from datetime import datetime
 import subprocess
 
 
+enabsettings='false'
+if enabsettings=='true':
+    set = '>(4) Settings\n'
+else:
+    set = ' '    
 
 if "Linux" not in platform.platform():
     exit()  
@@ -57,7 +62,7 @@ def start():
  print(">(1) Stats\n")
  print('>(2) System Controls\n')
  print('>(3) NetWork\n')
- print('>(4) Settings\n')
+ print(set)
  print("-----------------------------------------")
  def log():   
    config = ConfigParser()
@@ -101,8 +106,8 @@ def start():
      print('Uknown Command')
      time.sleep(0.7)
      start()   
-       
-def settings():
+if enabsettings == 'true':       
+ def settings():
     s = open(os.getcwd() + '/config.ini')  
     os.system("clear")
     print((colored (figlet_format("\u0332" + "ANIX", font='slant'), color="blue")))
@@ -121,10 +126,11 @@ def settings():
     config.read(os.path.dirname(__file__) +'/'+'config.ini')     
     if config.get('settings','loginfo') == 'true':
         loganw=colored('True','green')
+        print('nig')
     else:
         loganw=colored('False','red')       
     print('\n Log Loggins [loginfo][true/false] = ' + loganw)
-    if config.get('settings','sudorequired'):
+    if config.get('settings','sudorequired') == 'true':
         suanw = colored('True','green')
     else:
         suanw = colored('False','red')    
@@ -150,8 +156,12 @@ def settings():
         settings() 
     elif 'set sudoreq true' in setint.lower():
         config.set('settings','sudoreq','true')
+        time.sleep(1)    
+        settings() 
     elif 'set sudoreq false' in setint.lower():
-        config.set('settings','sudoreq','false')             
+        config.set('settings','sudoreq','false') 
+        time.sleep(1)    
+        settings()             
      
 def network():
     os.system("clear")
