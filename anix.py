@@ -123,7 +123,7 @@ def settings():
         loganw=colored('True','green')
     else:
         loganw=colored('False','red')       
-    print('\n Log Loggins [true/false] = ' + loganw)
+    print('\n Log Loggins [loginfo][true/false] = ' + loganw)
     if config.get('settings','sudorequired'):
         suanw = colored('True','green')
     else:
@@ -147,7 +147,11 @@ def settings():
     elif 'set loginfo false' in setint.lower():
         config.set('settings','loginfo','false') 
         time.sleep(1)    
-        settings()      
+        settings() 
+    elif 'set sudoreq true' in setint.lower():
+        config.set('settings','sudoreq','true')
+    elif 'set sudoreq false' in setint.lower():
+        config.set('settings','sudoreq','false')             
      
 def network():
     os.system("clear")
