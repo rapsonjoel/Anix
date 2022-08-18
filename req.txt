@@ -1,0 +1,9 @@
+colorama
+pendulum
+termcolor
+pyfiglet
+colorama
+psutil
+platform
+time
+configparser
