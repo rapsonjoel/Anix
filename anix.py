@@ -1,3 +1,4 @@
+import os
 with open(os.path.dirname(__file__) +'/'+'log.txt',"a") as f:
     if 'opened' in f.read():
      reqinp = input('this is the first time running this script would you like insall the required files [y/n]')
