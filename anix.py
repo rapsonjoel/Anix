@@ -1,3 +1,12 @@
+with open(os.path.dirname(__file__) +'/'+'log.txt',"a") as f:
+    if 'opened' in f.read():
+     reqinp = input('this is the first time running this script would you like insall the required files [y/n]')
+     if reqinp == 'y':
+      import os 
+      os.system('pip freeze' + os.path.dirname(__file__) +'/req.txt')
+    f.write("open")  
+    f.close()
+
 import os, math
 from colorama import init
 from pendulum import duration
