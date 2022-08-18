@@ -1,13 +1,15 @@
 import os
-with open(os.path.dirname(__file__) +'/'+'log.txt',"r") as f:
-    if 'opened' in f.read():
+with open(os.path.dirname(__file__) +'/'+'log.txt',"a") as f:
+ with open(os.path.dirname(__file__) +'/'+'log.txt',"r") as r:
+    if 'opened' in r.read():
      reqinp = input('this is the first time running this script would you like insall the required files [y/n]')
      if reqinp == 'y':
       import os 
       os.system('pip freeze' + os.path.dirname(__file__) +'/req.txt')
-    with open(os.path.dirname(__file__) +'/'+'log.txt',"a") as f:  
-     f.write("open")  
-     f.close()
+ r.close()   
+f.write("open")  
+f.close()
+
 
 import os, math
 from colorama import init
