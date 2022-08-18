@@ -4,10 +4,8 @@ from pendulum import duration
 from termcolor import colored
 from termcolor import cprint
 from pyfiglet import figlet_format
-import colorama
 from colorama import Fore
 import psutil
-import string
 import platform
 import time
 from configparser import ConfigParser
@@ -105,7 +103,7 @@ def start():
      start()   
        
 def settings():
-    s = open(os.getcwd() + '/config.txt')  
+    s = open(os.getcwd() + '/config.ini')  
     os.system("clear")
     print((colored (figlet_format("\u0332" + "ANIX", font='slant'), color="blue")))
     print("-----------------------------------------")
